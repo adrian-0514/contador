@@ -6,17 +6,21 @@ import { AppComponent } from './app.component';
 import { RestarComponent } from './componentes/restar/restar.component';
 import { SumarComponent } from './componentes/sumar/sumar.component';
 import { TituloComponent } from './componentes/titulo/titulo.component';
+import { CalculadoraComponent } from './componentes/calculadora/calculadora.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     RestarComponent,
     SumarComponent,
-    TituloComponent
+    TituloComponent,
+    CalculadoraComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
