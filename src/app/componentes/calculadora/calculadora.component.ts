@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class CalculadoraComponent {
   public formula:string="";
-  public resultado:string="";
+  public Resultado:string="coloque su formula";
 
 
   constructor()  {  }
@@ -17,7 +17,7 @@ export class CalculadoraComponent {
   }
   calcular(){
     let x=eval(this.formula);
-    this.resultado =this.formula+"="+x;
+    this.Resultado =this.formula+"="+x;
     this.formula="";
 
   }
@@ -25,5 +25,12 @@ export class CalculadoraComponent {
   retroceso(){
     this.formula=this.formula.substr(0,this.formula.length-1);
   }
+
+  limpiar(){
+    this.formula=this.Resultado;
+
+  }
+ 
+  
   
  }

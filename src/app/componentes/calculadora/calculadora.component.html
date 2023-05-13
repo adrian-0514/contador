@@ -1,18 +1,101 @@
-<div class="container">
+<div class="container"> 
+
     <div class="input-group flex-nowrap">
         <div class="input-group-prepend">
           <span class="input-group-text" id="addon-wrapping">formula</span>
         </div>
-        <input type="text" class="form-control"
-         placeholder="escriba la formula matematica"aria-label="Username"
-         aria-describedby="addon-wrapping"[(ngModel)]="formula">
-        <button class="btn btn-info"(click)="calcular()">calculadora</button>
-        <button class="btn btn-dark ml-3" (click)="retroceso()"><-</button>
+        <input type="text" class="form-control" placeholder="escriba la formula matematica" aria-label="Username" aria-describedby="addon-wrapping"[(ngModel)]="formula">
+         <button class="btn btn-outline-primary mr-2 "(click)="calcular()">calcular</button>
+         <button class="btn btn-dark mr-2" (click)="retroceso()"><-</button>
+         <button class="btn btn-danger mr-2" (click)="limpiar()">AC</button>
+    </div>
+
+    <br>
+    <h4>Resultado= {{Resultado}}</h4>
+
+    <hr>
+    <br><br>
+
+    <div class="row justify-content-center ">
+      <div class="col-4 bodercalculadora pt-3">
+        <div class="row mb-2">
+          <div class="col">
+            <div class="display">
+              fdbhdfgnbfdb
+            </div>
+          </div>
+        </div>
+        <div class="row mb-2"> 
+          <div class="col-3">
+            <button class="btn btn-outline-Dark calculado border-secondary">.</button> 
+          </div>
+          <div class="col-3">
+            <button class="btn btn-outline-Dark calculado border-secondary">/</button>
+          </div>
+          <div class="col-3">
+            <button class="btn btn-outline-Dark calculado border-secondary ">AC</button>
+          </div>
+          <div class="col-3">
+            <button class="btn btn-outline-Dark calculado border-secondary">C</button>
+          </div>
+        </div>
+        <div class="row mb-2">
+          <div class="col-3">
+            <button class="btn btn-outline-Dark calculado border-secondary">7</button>
+          </div>
+          <div class="col-3">
+            <button class="btn btn-outline-Dark calculado border-secondary">8</button>
+          </div>
+          <div class="col-3">
+            <button class="btn btn-outline-Dark calculado border-secondary">9</button>
+          </div>
+          <div class="col-3">
+            <button class="btn btn-outline-Dark calculado border-secondary">*</button>
+          </div>
+        </div>
+        <div class="row mb-2">
+          <div class="col-3">
+            <button class="btn btn-outline-Dark calculado border-secondary">4</button>
+          </div>
+          <div class="col-3">
+            <button class="btn btn-outline-Dark calculado border-secondary">5</button>
+          </div>
+          <div class="col-3">
+            <button class="btn btn-outline-Dark calculado border-secondary">6</button>
+          </div>
+          <div class="col-3">
+            <button class="btn btn-outline-Dark calculado border-secondary">-</button>
+          </div>
+        </div>
+        <div class="row mb-2">
+          <div class="col-3">
+            <button class="btn btn-outline-Dark calculado border-secondary">1</button>
+          </div>
+          <div class="col-3">
+            <button class="btn btn-outline-Dark calculado border-secondary">2</button>
+          </div>
+          <div class="col-3">
+            <button class="btn btn-outline-Dark calculado border-secondary">3</button>
+          </div>
+          <div class="col-3">
+            <button class="btn btn-outline-Dark calculado border-secondary">+</button>
+          </div>
+        </div>
+        <div class="row mb-2">
+          <div class="col-3">
+            <button class="btn btn-outline-Dark calculado border-secondary">(</button>
+          </div>
+          <div class="col-3">
+            <button class="btn btn-outline-Dark calculado border-secondary">)</button>
+          </div>
+          <div class="col-3">
+            <button class="btn btn-outline-Dark calculado border-secondary">0</button>
+          </div>
+          <div class="col-3">
+            <button class="btn btn-outline-Dark calculado border-secondary">=</button>
+          </div>
+        </div>
 
       </div>
-    
-    <br>
-    <h4>resultado={{resultado}}</h4>
-
-
+    </div>
 </div>
