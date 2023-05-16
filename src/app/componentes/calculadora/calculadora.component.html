@@ -16,86 +16,87 @@
     <hr>
     <br><br>
 
-    <div class="row justify-content-center ">
-      <div class="col-4 bodercalculadora pt-3">
+    <div class="row container center  ">
+      <div class="col-4 bodercalculadora pt-2">
         <div class="row mb-2">
           <div class="col">
-            <div class="display">
-              fdbhdfgnbfdb
+            <div class="display" textarea name="" id="" class="display" [ngClass]="{'fondo1': !error, 'fondo2':error}" rom="2">{{display}}
+             
             </div>
           </div>
         </div>
         <div class="row mb-2"> 
           <div class="col-3">
-            <button class="btn btn-outline-Dark calculado border-secondary">.</button> 
+            <button class="btn btn-outline-Dark calculado border-secondary" (click)="mostrar('.')">.</button> 
           </div>
           <div class="col-3">
-            <button class="btn btn-outline-Dark calculado border-secondary">/</button>
+            <button class="btn btn-outline-Dark calculado border-secondary" (click)="mostrar('/')">/</button>
           </div>
           <div class="col-3">
-            <button class="btn btn-outline-Dark calculado border-secondary ">AC</button>
+            <button class="btn btn-outline-Dark calculado border-secondary" (click)="AC()">AC</button>
           </div>
           <div class="col-3">
-            <button class="btn btn-outline-Dark calculado border-secondary">C</button>
-          </div>
-        </div>
-        <div class="row mb-2">
-          <div class="col-3">
-            <button class="btn btn-outline-Dark calculado border-secondary">7</button>
-          </div>
-          <div class="col-3">
-            <button class="btn btn-outline-Dark calculado border-secondary">8</button>
-          </div>
-          <div class="col-3">
-            <button class="btn btn-outline-Dark calculado border-secondary">9</button>
-          </div>
-          <div class="col-3">
-            <button class="btn btn-outline-Dark calculado border-secondary">*</button>
+            <button class="btn btn-outline-Dark calculado border-secondary" (click)="C()">C</button>
           </div>
         </div>
         <div class="row mb-2">
           <div class="col-3">
-            <button class="btn btn-outline-Dark calculado border-secondary">4</button>
+            <button class="btn btn-outline-Dark calculado border-secondary" (click)="mostrar('7')">7</button>
           </div>
           <div class="col-3">
-            <button class="btn btn-outline-Dark calculado border-secondary">5</button>
+            <button class="btn btn-outline-Dark calculado border-secondary" (click)="mostrar('8')">8</button>
           </div>
           <div class="col-3">
-            <button class="btn btn-outline-Dark calculado border-secondary">6</button>
+            <button class="btn btn-outline-Dark calculado border-secondary" (click)="mostrar('9')">9</button>
           </div>
           <div class="col-3">
-            <button class="btn btn-outline-Dark calculado border-secondary">-</button>
-          </div>
-        </div>
-        <div class="row mb-2">
-          <div class="col-3">
-            <button class="btn btn-outline-Dark calculado border-secondary">1</button>
-          </div>
-          <div class="col-3">
-            <button class="btn btn-outline-Dark calculado border-secondary">2</button>
-          </div>
-          <div class="col-3">
-            <button class="btn btn-outline-Dark calculado border-secondary">3</button>
-          </div>
-          <div class="col-3">
-            <button class="btn btn-outline-Dark calculado border-secondary">+</button>
+            <button class="btn btn-outline-Dark calculado border-secondary" (click)="mostrar('*')">*</button>
           </div>
         </div>
         <div class="row mb-2">
           <div class="col-3">
-            <button class="btn btn-outline-Dark calculado border-secondary">(</button>
+            <button class="btn btn-outline-Dark calculado border-secondary" (click)="mostrar('4')">4</button>
           </div>
           <div class="col-3">
-            <button class="btn btn-outline-Dark calculado border-secondary">)</button>
+            <button class="btn btn-outline-Dark calculado border-secondary" (click)="mostrar('5')">5</button>
           </div>
           <div class="col-3">
-            <button class="btn btn-outline-Dark calculado border-secondary">0</button>
+            <button class="btn btn-outline-Dark calculado border-secondary" (click)="mostrar('6')">6</button>
           </div>
           <div class="col-3">
-            <button class="btn btn-outline-Dark calculado border-secondary">=</button>
+            <button class="btn btn-outline-Dark calculado border-secondary" (click)="mostrar('-')">-</button>
+          </div>
+        </div>
+        <div class="row mb-2">
+          <div class="col-3">
+            <button class="btn btn-outline-Dark calculado border-secondary" (click)="mostrar('1')">1</button>
+          </div>
+          <div class="col-3">
+            <button class="btn btn-outline-Dark calculado border-secondary" (click)="mostrar('2')">2</button>
+          </div>
+          <div class="col-3">
+            <button class="btn btn-outline-Dark calculado border-secondary" (click)="mostrar('3')">3</button>
+          </div>
+          <div class="col-3">
+            <button class="btn btn-outline-Dark calculado border-secondary" (click)="mostrar('+')">+</button>
+          </div>
+        </div>
+        <div class="row mb-2">
+          <div class="col-3">
+            <button class="btn btn-outline-Dark calculado border-secondary"(click)="mostrar('(')">(</button>
+          </div>
+          <div class="col-3">
+            <button class="btn btn-outline-Dark calculado border-secondary" (click)="mostrar(')')">)</button>
+          </div>
+          <div class="col-3">
+            <button class="btn btn-outline-Dark calculado border-secondary" (click)="mostrar('0')">0</button>
+          </div>
+          <div class="col-3">
+            <button class="btn btn-outline-Dark calculado border-secondary" (click)="calcu()">=</button>
           </div>
         </div>
 
       </div>
     </div>
 </div>
+
