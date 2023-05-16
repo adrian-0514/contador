@@ -24,6 +24,7 @@ export class CalculadoraComponent {
   
   retroceso(){
     this.formula=this.formula.substr(0,this.formula.length-1);
+    this.Resultado
   }
 
   limpiar(){
