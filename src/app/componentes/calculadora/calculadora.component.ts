@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-calculadora',
@@ -6,21 +6,35 @@ import { Component } from '@angular/core';
   styleUrls: ['./calculadora.component.css']
 })
 export class CalculadoraComponent {
+
+  @Output() mosHist: EventEmitter<boolean>= new EventEmitter();
+
   public formula: string = "";
   public Resultado: string = "coloque su formula";
   public display: string = "0"; // calcu
   private formular = ""; // calcu
   public resul = "0"; // calcu
-  public error: boolean = false
-
+  public error: boolean = false;
+  public tipo : boolean = false;
+  public nombre : string = "CTF";
+  private valAnterior : string = "";
 
   constructor() { }
 
   ngOnInit(): void {
 
   }
+  esNumero(val: string){
+    return /^[0-9-.]+([.][0-9]+)?$/.test(val);
+  }
+  sustraer(x:number){
+    return this.display.charAt(this.display.length - x);
+  }
+
   // calcu---------------------------
   // funcion queme va a mostrat un valor en el display
+  
+
   mostrar(valor: string) {
 
     if (this.resul != "") {
@@ -30,10 +44,48 @@ export class CalculadoraComponent {
     }
     if (this.display == "0") {
       this.display = "";
+
     }
+    if (valor=="%"){
+     let x = 1;
+     this.valAnterior="";
+      while (this.esNumero(this.sustraer(x)))   {
+    this.valAnterior=this.sustraer(x)+this.valAnterior;
+   
+        x++;
+      }
+      this.display = this.display.substring(0, this.display.length + 1 - x);
+      valor = (eval(this.valAnterior)/100).toFixed(3).toString();
+
+    }
+    if(valor=="π"){
+      valor=Math.PI.toFixed(4);
+      let c=this.display.slice(-1);
+      if (c!="("&& c!="+" && c!="-" && c!="/" && c!="*" && c!="d" && c!="." && this.display!=""){
+      valor = "*" + valor;
+    }
+  }
+  if(valor=="±"){
+    let x = 1;
+    this.valAnterior="";
+     while (this.esNumero(this.sustraer(x)))   {
+   this.valAnterior=this.sustraer(x)+this.valAnterior;
+  
+       x++;
+     }
+     this.display = this.display.substring(0, this.display.length + 1 - x);
+     valor = (eval(this.valAnterior)* -1).toString();
+}
+  
+
+  
+
+
+
     this.display = this.display + valor;
   }
-
+  
+  
   // no es de la calculadora
   calcular() {
     let x = eval(this.formula);
@@ -78,7 +130,7 @@ export class CalculadoraComponent {
   calcu() {
     this.formular = this.display;
     try {
-      this.resul = eval(this.display);
+      this.resul = eval(this.display.replace("mod", "%"));
     } catch {
       this.resul = "error ";
       this.error = true;
@@ -89,7 +141,18 @@ export class CalculadoraComponent {
 
   }
 
+  cambiar(){
+    this.tipo=!this.tipo;
+    if(this.tipo){
+      this.nombre="STD";
+    }else{
+      this.nombre="CTF";
+    }
+  }
 
+  cambiarpanel(){
+this.mosHist.emit(true);
+  }
 
 
 }
