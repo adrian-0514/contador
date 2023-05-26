@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-calculadora',
@@ -8,6 +8,8 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class CalculadoraComponent {
 
   @Output() mosHist: EventEmitter<boolean>= new EventEmitter();
+  @Output() hist: EventEmitter<string>= new EventEmitter();
+  @Input() borrarH = false;
 
   public formula: string = "";
   public Resultado: string = "coloque su formula";
@@ -18,6 +20,9 @@ export class CalculadoraComponent {
   public tipo : boolean = false;
   public nombre : string = "CTF";
   private valAnterior : string = "";
+  private historial : string = "";
+ 
+
 
   constructor() { }
 
@@ -110,6 +115,7 @@ export class CalculadoraComponent {
     this.display = "0";
     this.resul = "";
     this.formular = "";
+
   }
   // calcu ----------------------------------
   // borre el ultimo del display
@@ -137,6 +143,10 @@ export class CalculadoraComponent {
     }
 
     this.display = this.formular + "\n" + this.resul;
+    this.hayHistoria();
+    this.historial = this.historial+ "\n" +this.formular + " = " + this.resul;
+   this.mostrarHistoriar();
+    
 
 
   }
@@ -154,5 +164,18 @@ export class CalculadoraComponent {
 this.mosHist.emit(true);
   }
 
+  mostrarHistoriar(){
+    this.hist.emit(this.historial);
+
+  }
+
+  hayHistoria(){
+    if(this.borrarH){
+      this.historial="";
+      this.borrarH=false;
+    }
+  }
+  
+ 
 
 }

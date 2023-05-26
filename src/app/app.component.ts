@@ -7,12 +7,26 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'contador';
-  
+  public historial: string="historial"
+  public borrar : boolean = false
   public panelH:boolean=false;
 
     mostrarPanel(x:Boolean){
       this.panelH=!this.panelH
     }
+
+    historial_(valor:string){
+      this.borrar=false;
+      this.historial = valor;
+    }
+
+    borrarH(){
+      this.historial="";
+      this.borrar=true;
+    }
+
+
+   
     
 
 

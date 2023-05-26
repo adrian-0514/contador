@@ -1,15 +1,16 @@
-<div class="text-center mt-5">
+<div class="text-center mt-2">
   <app-titulo></app-titulo>
   <hr>
  <div class="container">
   <div class="row justify-content-center">
     <div class=" col-ms-12 col-md-6 col-lg-4 ">
-      <app-calculadora (mosHist)=" mostrarPanel($event)"></app-calculadora>
+      <app-calculadora [borrarH]="borrar" (mosHist)=" mostrarPanel($event)" (hist)="historial_($event)"></app-calculadora>
     </div>
     <div class=" col-ms-12 col-md-6 col-lg-4 " *ngIf="panelH">
-      <textarea class="overflow-auto bg-info border border-dark rounded w-100 p-3"rows="13">
-        historia de opera
+      <textarea class="overflow-auto bg-info border border-dark rounded w-100 p-3"rows="12">
+       {{historial}}
       </textarea>
+      <button class="btn btn-danger "(click)="borrarH()">eliminar histiriar</button>
     </div>
   </div>
  </div>
